@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:paddingTop="@dimen/action_bar_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:layout_marginBottom="@dimen/margin_medium"
+    android:paddingLeft="@dimen/margin_medium_2x"
+    android:paddingBottom="@dimen/margin_medium_2x">
+
+
+
+                <RelativeLayout
+                    android:id="@+id/lyPlantItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:src="@drawable/bg_view_item"/>
+
+
+                    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                        android:id="@+id/ivPlant"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="0dp"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:foreground="@drawable/fg_view_item"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_plant"
+                        app:siShape="@drawable/bg_view_item" />
+
+                    <ImageView
+                        android:id="@+id/ivFavourite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_favorite_border_black_24dp"
+                        android:layout_margin="@dimen/margin_medium_2x"
+                        android:layout_alignLeft="@id/ivPlant"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                    />
+
+                <TextView
+                     android:id="@+id/tvPlantName"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Monstera"
+                     android:textSize="@dimen/textsize_large"
+                     android:textStyle="bold"
+                        android:textColor="@color/plantNameColor"
+                     android:layout_above="@id/ivProfilePicture"
+                     android:layout_alignLeft="@id/ivProfilePicture"
+                     android:layout_marginTop="@dimen/margin_small"
+                 />
+
+                <com.github.siyamed.shapeimageview.CircularImageView
+                    android:id="@+id/ivProfilePicture"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft   ="@dimen/margin_medium_2x"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:layout_alignBottom="@id/ivPlant"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg_leaf_pattern"
+                        />
+
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="by Kate B."
+                    android:textSize="@dimen/textsize_small"
+                    android:textStyle="bold"
+                    android:textColor="@color/plantNameColor"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_alignTop="@id/ivProfilePicture"
+                    android:layout_toRightOf="@id/ivProfilePicture"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    />
+
+                </RelativeLayout>
+
+
+
+</RelativeLayout>

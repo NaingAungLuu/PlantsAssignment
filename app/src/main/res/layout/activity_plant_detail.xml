@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior"
+        android:background="@android:color/transparent"
+        >
+
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            app:layout_scrollFlags="snap|scroll"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.6">
+
+            <ImageView
+                android:id="@+id/ivDetailPlant"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_plant"
+                android:scaleType="centerCrop"
+
+                />
+
+            <ImageView
+                android:id="@+id/ivDetailPlantOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@android:color/transparent"
+                android:layout_marginBottom="@dimen/margin_medium_2x"
+                />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="enterAlways"
+                android:elevation="0dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivDetailBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:clickable="true"
+                        android:src="@drawable/ic_arrow_back_black_24dp"
+                        android:foregroundTint="@color/colorPrimary"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_share"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/margin_medium"
+                        />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_favorite_border_black_24dp"
+        android:backgroundTint="@color/fabBackgroundColor"
+        android:tint="@android:color/white"
+        app:layout_anchor="@id/appBarLayout"
+        app:elevation="25dp"
+        app:layout_anchorGravity="bottom|end"
+        android:layout_marginRight="@dimen/margin_medium_3x"
+        app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior"
+        android:layout_marginBottom="@dimen/margin_medium_2x"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/lyDetailBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="bottom"
+        android:background="@drawable/bg_plant_detail_body"
+        android:layout_marginTop="-32dp"
+        android:elevation="15dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:background="@drawable/bg_plant_detail_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDetailPlantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Monstera"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/textsize_large"
+                android:textStyle="bold"
+                android:textColor="@color/plantNameColor"
+                android:layout_marginLeft="@dimen/margin_medium_2x"
+                android:layout_marginTop="@dimen/margin_medium_3x"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_gravity="center_vertical"
+                >
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/ivDetailProfilePicture"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft   ="@dimen/margin_medium_2x"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_leaf_pattern"
+                />
+
+
+            <TextView
+                android:id="@+id/tvDetailUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="by Kate B."
+                android:textSize="@dimen/textsize_small"
+                android:textStyle="bold"
+                android:textColor="@color/plantNameColor"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_alignTop="@id/ivDetailProfilePicture"
+                android:layout_toRightOf="@id/ivDetailProfilePicture"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvDetailDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_medium_2x"
+                android:layout_marginRight="@dimen/margin_medium_2x"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/tvPlantDescription"
+                android:fontFamily="@font/poppins_regular"
+                android:lineSpacingMultiplier="1.2"
+                android:textSize="@dimen/text_size_medium"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvTips"
+                android:layout_marginLeft="@dimen/margin_medium_2x"
+                android:layout_marginTop="@dimen/margin_medium_2x"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:textSize="@dimen/textsize_medium_2x"
+                android:fontFamily="@font/poppins_medium"
+                android:textStyle="bold"
+                />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium_2x"
+                android:scrollbars="none"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="15dp"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:backgroundTint="@color/colorPrimary2"
+                    app:cardElevation="10dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/ic_temperature"
+                            android:tint="@android:color/white"
+                            android:padding="@dimen/margin_small"
+                            android:layout_margin="@dimen/margin_medium"
+                            android:background="@drawable/bg_tips_icons"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvTemperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:text="18 - 25 C"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="@dimen/margin_medium"
+                            android:layout_marginBottom="@dimen/margin_medium"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="@dimen/textsize_medium_3x"
+                            />
+
+                        <TextView
+                            android:layout_marginBottom="@dimen/margin_small"
+                            android:layout_above="@id/tvTemperature"
+                            android:layout_alignLeft="@id/tvTemperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Temperature"
+                            android:textSize="@dimen/text_size_medium"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@android:color/darker_gray"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="15dp"
+                    android:backgroundTint="@color/colorPrimary3"
+                    android:layout_margin="@dimen/margin_medium"
+                    app:cardElevation="10dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/ic_light"
+                        android:tint="@android:color/white"
+                        android:padding="@dimen/margin_small"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:background="@drawable/bg_tips_icons"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="Diffused"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="@dimen/textsize_medium_3x"
+                        />
+
+                    <TextView
+                        android:layout_marginBottom="@dimen/margin_small"
+                        android:layout_above="@id/tvLight"
+                        android:layout_alignLeft="@id/tvLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Light"
+                        android:textSize="@dimen/text_size_medium"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@android:color/darker_gray"
+                        />
+
+                </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="15dp"
+                    android:backgroundTint="@color/colorPrimary2"
+                    android:layout_margin="@dimen/margin_medium"
+                    app:cardElevation="10dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/ic_placement"
+                            android:tint="@android:color/white"
+                            android:padding="@dimen/margin_small"
+                            android:layout_margin="@dimen/margin_medium"
+                            android:background="@drawable/bg_tips_icons"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvPlacement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:text="Diffused"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="@dimen/margin_medium"
+                            android:layout_marginBottom="@dimen/margin_medium"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="@dimen/textsize_medium_3x"
+                            />
+
+                        <TextView
+                            android:layout_marginBottom="@dimen/margin_small"
+                            android:layout_above="@id/tvPlacement"
+                            android:layout_alignLeft="@id/tvPlacement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Light"
+                            android:textSize="@dimen/text_size_medium"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@android:color/darker_gray"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00B612</color>
+    <color name="colorPrimaryDark">#296B4B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary2">#32574E</color>
+    <color name="colorPrimary3">#3C554A</color>
+    <color name="plantNameColor">#474747</color>
+    <color name="fabBackgroundColor">#73C47C</color>
+    <color name="memberRankColor">#DBDBDB</color>
+</resources>

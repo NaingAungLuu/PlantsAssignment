@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/loginRootView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_plant"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LoginActivity"
+    android:paddingTop="@dimen/layout_top_padding">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_medium_3x"
+        android:layout_marginTop="@dimen/margin_medium_2x"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingLeft="@dimen/margin_medium"
+        android:text="LOGIN"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/textsize_large"
+        android:textStyle="bold"
+         />
+
+    <TextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in your account to continue"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_below="@id/tvTitle"
+        android:textSize="@dimen/textsize_small"
+        android:layout_marginLeft="@dimen/margin_medium"
+        />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvEmail"
+        android:fontFamily="@font/roboto_medium"
+        android:textStyle="bold"
+        android:layout_below="@id/tvSubTitle"
+        android:layout_alignLeft="@id/etEmail"
+        android:layout_marginLeft="@dimen/margin_medium_3x"
+        android:layout_marginTop="@dimen/margin_medium_3x"
+        />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingTop  ="@dimen/margin_medium_2x"
+        android:paddingBottom="@dimen/margin_medium_2x"
+        android:paddingRight="@dimen/margin_large"
+        android:paddingLeft="@dimen/margin_medium_3x"
+        android:hint="Name@gmail.com"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/tvEmail"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_edit_text"
+        android:elevation="40dp"
+        />
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvPassword"
+        android:fontFamily="@font/roboto_medium"
+        android:textStyle="bold"
+        android:layout_below="@id/etEmail"
+        android:layout_alignLeft="@id/etPassword"
+        android:layout_marginLeft="@dimen/margin_medium_3x"
+        android:layout_marginTop="@dimen/margin_medium_2x"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_small"
+        android:paddingTop  ="@dimen/margin_medium_2x"
+        android:paddingBottom="@dimen/margin_medium_2x"
+        android:paddingRight="@dimen/margin_large"
+        android:paddingLeft="@dimen/margin_medium_3x"
+        android:hint="*************"
+        android:inputType="textPassword"
+        android:layout_below="@id/tvPassword"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_edit_text"
+        android:elevation="40dp"
+        />
+
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@id/etPassword"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_medium_2x"
+
+        />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="LOGIN"
+        android:textSize="@dimen/textsize_medium_2x"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/poppins_regular"
+        android:background="@drawable/bg_btn_login"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/margin_medium_2x"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:paddingLeft="120dp"
+        android:layout_below="@id/tvForgotPassword"
+        android:layout_centerVertical="true"
+        android:paddingRight="@dimen/btn_login_padding"
+        android:elevation="40dp"
+        />
+
+
+
+
+</RelativeLayout>
