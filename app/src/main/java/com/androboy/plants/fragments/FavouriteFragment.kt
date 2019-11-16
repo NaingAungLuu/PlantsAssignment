@@ -30,7 +30,7 @@ class FavouriteFragment : Fragment() , FavouriteView{
     }
 
     override fun showFavouritePlants(plants: List<PlantVO>) {
-
+        mAdapter.setNewData(plants.toMutableList())
     }
 
     private lateinit var mPresenter: FavouritePresenter
@@ -46,7 +46,7 @@ class FavouriteFragment : Fragment() , FavouriteView{
         rvFavouritesRecent.adapter = mAdapter
         rvFavouritesRecent.layoutManager = GridLayoutManager(context , 2)
 
-
+        mPresenter.onUIReady()
     }
 
     override fun onCreateView(

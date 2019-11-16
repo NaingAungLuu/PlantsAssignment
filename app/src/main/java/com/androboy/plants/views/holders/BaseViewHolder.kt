@@ -24,6 +24,7 @@ abstract class BaseViewHolder<T>(itemView : View) : RecyclerView.ViewHolder(item
 
     }
 
+
     protected abstract fun bindData(data : T)
 
 

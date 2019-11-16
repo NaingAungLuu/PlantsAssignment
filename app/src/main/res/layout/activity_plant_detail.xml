@@ -37,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/bg_plant"
                 android:scaleType="centerCrop"
-
+                android:transitionName="tPlantImage"
                 />
 
             <ImageView
@@ -93,19 +93,21 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_favorite_border_black_24dp"
-        android:backgroundTint="@color/fabBackgroundColor"
-        android:tint="@android:color/white"
-        app:layout_anchor="@id/appBarLayout"
-        app:elevation="25dp"
-        app:layout_anchorGravity="bottom|end"
-        android:layout_marginRight="@dimen/margin_medium_3x"
-        app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior"
-        android:layout_marginBottom="@dimen/margin_medium_2x"
-        />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_favorite_border_black_24dp"-->
+<!--        android:backgroundTint="@color/fabBackgroundColor"-->
+<!--        android:tint="@android:color/white"-->
+<!--        app:layout_anchor="@id/appBarLayout"-->
+<!--        app:elevation="25dp"-->
+<!--        app:layout_anchorGravity="bottom|end"-->
+<!--        android:layout_marginRight="@dimen/margin_medium_3x"-->
+<!--        app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior"-->
+<!--        android:layout_marginBottom="@dimen/margin_medium_2x"-->
+<!--        />-->
+
+
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/lyDetailBody"
@@ -124,19 +126,58 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvDetailPlantName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="Monstera"
-                android:fontFamily="@font/poppins_regular"
-                android:textSize="@dimen/textsize_large"
-                android:textStyle="bold"
-                android:textColor="@color/plantNameColor"
-                android:layout_marginLeft="@dimen/margin_medium_2x"
-                android:layout_marginTop="@dimen/margin_medium_3x"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvDetailPlantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="Monstera"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/textsize_large"
+                    android:textStyle="bold"
+                    android:textColor="@color/plantNameColor"
+                    android:layout_marginLeft="@dimen/margin_medium_2x"
+                    android:layout_marginTop="@dimen/margin_medium_3x"
+                    android:transitionName="tPlantName"
+                    />
+
+
+
+                <ImageView
+                    android:id="@+id/ivFavourite"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_favorite_border_black_24dp"
+                    android:layout_toRightOf="@id/tvDetailPlantName"
+                    android:layout_alignLeft="@id/btnFavourite"
+                    android:layout_alignRight="@id/btnFavourite"
+                    android:layout_alignBottom="@id/tvDetailPlantName"
+                    android:layout_marginBottom="4dp"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/btnFavourite"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:lottie_fileName="favourite_2.json"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_toRightOf="@id/tvDetailPlantName"
+                    android:layout_marginTop="@dimen/margin_medium_2x"
+                    android:layout_marginStart="@dimen/margin_small"
+                    app:lottie_progress="10"
+                    app:tint="@color/colorAccent"
+                    android:visibility="invisible"
+                    />
+
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -152,6 +193,7 @@
                 android:layout_marginLeft   ="@dimen/margin_medium_2x"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bg_leaf_pattern"
+                android:transitionName="tPlantOwnerImage"
                 />
 
 
@@ -168,6 +210,7 @@
                 android:layout_toRightOf="@id/ivDetailProfilePicture"
                 android:layout_marginLeft="@dimen/margin_small"
                 android:layout_marginTop="@dimen/margin_small"
+                android:transitionName="tPlantOwner"
                 />
             </RelativeLayout>
 
@@ -197,10 +240,12 @@
                 />
 
             <HorizontalScrollView
+                android:id="@+id/lyPLantDetailTips"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_medium_2x"
                 android:scrollbars="none"
+                android:visibility="invisible"
                 >
 
                 <LinearLayout

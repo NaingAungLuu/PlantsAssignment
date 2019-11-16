@@ -35,8 +35,8 @@ class PlantCatalougeAdapter(private val delegate: PlantDelegate) : BaseAdapter<P
     }
 
     override fun onBindViewHolder(holder: PlantViewItem, position: Int) {
-        if(position >0) {
-            holder.data = dataList[position -1]
+        if(position > 0) {
+            holder.data = dataList[position-1]
         }
     }
 }

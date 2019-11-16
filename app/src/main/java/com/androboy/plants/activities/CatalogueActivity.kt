@@ -1,21 +1,24 @@
 package com.androboy.plants.activities
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
-import android.view.Gravity
-import android.view.MenuItem
-import android.view.Window
-import android.view.WindowManager
+import android.os.Handler
+import android.transition.Fade
+import android.view.*
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.ProgressBar
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androboy.plants.R
 import com.androboy.plants.adapters.PlantCatalougeAdapter
 import com.androboy.plants.data.vos.PlantVO
-import com.androboy.plants.delegate.PlantDelegate
-import com.androboy.plants.mvp.presenters.BasePresenter
 import com.androboy.plants.mvp.presenters.CataloguePresenter
 import com.androboy.plants.mvp.views.CatalogueView
 import com.google.android.material.navigation.NavigationView
@@ -35,7 +38,12 @@ class CatalogueActivity : BaseActivity(), CatalogueView , NavigationView.OnNavig
     }
 
     override fun navigateToDetail(plantID: String) {
-        startActivity(PlantDetailActivity.newIntent(this , plantID))
+        val plantImagePair = Pair.create(ivPlant as View , "tPlantImage")
+        val plantNamePair = Pair.create(tvPlantName as View , "tPlantName")
+        val plantOwnerPair = Pair.create(tvUserName as View , "tPlantOwner")
+        val plantOwnerImagePair = Pair.create(ivProfilePicture  as View , "tPlantOwnerName")
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this , plantImagePair , plantNamePair )
+        startActivity(PlantDetailActivity.newIntent(this , plantID) , options.toBundle())
     }
 
     private lateinit var mUserID : String
@@ -67,7 +75,7 @@ class CatalogueActivity : BaseActivity(), CatalogueView , NavigationView.OnNavig
         }
         else if(menuID == R.id.nav_Favourite)
         {
-            startActivity(Intent(applicationContext , FavouriteActivity::class.java))
+            startActivity(Intent(applicationContext , FavouriteActivity::class.java) ,ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle())
         }
         return true
     }
@@ -77,6 +85,7 @@ class CatalogueActivity : BaseActivity(), CatalogueView , NavigationView.OnNavig
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        setupTransition()
         setContentView(R.layout.activity_catalogue)
         setSupportActionBar(tbCatalogue)
 
@@ -95,7 +104,41 @@ class CatalogueActivity : BaseActivity(), CatalogueView , NavigationView.OnNavig
 
         navMenu.setNavigationItemSelectedListener(this)
         mPresenter.onCreate()
+        startPlantListAnimation()
     }
+
+    private fun setupTransition() {
+        with(window)
+        {
+            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+            val fadeTransition = Fade()
+            fadeTransition.interpolator = AccelerateDecelerateInterpolator()
+            fadeTransition.duration = 1000
+            enterTransition = fadeTransition
+            exitTransition = fadeTransition
+        }
+    }
+
+    private fun startPlantListAnimation()
+    {
+        val handler = Handler()
+        handler.postDelayed( { playPlantListAnimation() } , 2500)
+    }
+
+    private fun playPlantListAnimation()
+    {
+        val animator = ObjectAnimator.ofFloat(rvPlants , View.TRANSLATION_X , rvPlants.width.toFloat() , 0f)
+        animator.interpolator = OvershootInterpolator()
+        animator.duration = 1500
+        animator.addListener(object : AnimatorListenerAdapter()
+        {
+            override fun onAnimationStart(animation: Animator?) {
+                rvPlants.visibility = View.VISIBLE
+            }
+        })
+        animator.start()
+    }
+
 
     override fun onStart() {
         super.onStart()

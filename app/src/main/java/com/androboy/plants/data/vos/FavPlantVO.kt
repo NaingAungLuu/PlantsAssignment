@@ -10,10 +10,10 @@ data class FavPlantVO(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val idPK : Int,
+    val idPK : Int = 0,
 
     @ColumnInfo(name = "plant_id")
-    val plantID : String
+    val plantID : String = ""
 
 ) {
 

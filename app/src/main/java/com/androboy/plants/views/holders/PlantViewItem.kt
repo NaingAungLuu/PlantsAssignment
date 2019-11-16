@@ -2,6 +2,7 @@ package com.androboy.plants.views.holders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.androboy.plants.R
 import com.androboy.plants.adapters.PlantCatalougeAdapter
 import com.androboy.plants.data.vos.PlantVO
 import com.androboy.plants.delegate.PlantDelegate
@@ -21,7 +22,8 @@ class PlantViewItem(itemView: View , delegate: PlantDelegate) : BaseViewHolder<P
                 }
             }
             itemView.ivFavourite.setOnClickListener {
-
+                itemView.ivFavourite.setImageResource(R.drawable.ic_favorite_black_24dp)
+                delegate.onTapFavButton(data?.plantID ?: "")
             }
         }
 

@@ -1,6 +1,10 @@
 package com.androboy.plants.activities
 
 import android.os.Bundle
+import android.transition.Slide
+import android.view.Gravity
+import android.view.Window
+import android.view.animation.AccelerateDecelerateInterpolator
 import com.androboy.plants.R
 import com.androboy.plants.adapters.FavTabPagerAdapter
 import kotlinx.android.synthetic.main.activity_favorite.*
@@ -10,6 +14,7 @@ class FavouriteActivity : BaseActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupTransition()
         setContentView(R.layout.activity_favorite)
 
         setSupportActionBar(tbFavourite)
@@ -22,6 +27,19 @@ class FavouriteActivity : BaseActivity(){
         tabLayoutFavourite.elevation = 0f
 
 
+    }
+    private fun setupTransition()
+    {
+        with(window)
+        {
+            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+            val slideTransition = Slide()
+            slideTransition.slideEdge = Gravity.BOTTOM
+            slideTransition.duration = 1000
+            slideTransition.interpolator = AccelerateDecelerateInterpolator()
+            enterTransition = slideTransition
+            exitTransition = slideTransition
+        }
     }
 
 }

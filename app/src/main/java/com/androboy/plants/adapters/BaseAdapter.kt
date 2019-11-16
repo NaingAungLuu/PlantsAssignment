@@ -14,7 +14,7 @@ abstract class BaseAdapter<VH: BaseViewHolder<T>, T> : RecyclerView.Adapter<VH>(
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-
+        holder.data = dataList[position]
     }
 
     fun setNewData(newData : MutableList<T>)

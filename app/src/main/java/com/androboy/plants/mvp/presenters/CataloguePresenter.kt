@@ -9,18 +9,21 @@ import kotlinx.android.synthetic.main.activity_catalogue.*
 
 class CataloguePresenter : BasePresenter<CatalogueView>(), PlantDelegate {
 
+    private val model = PlantModelImpl
+
+    override fun onTapFavButton(plantID: String) {
+
+        println("Tapped on fav icon!! $plantID")
+        model.addFavourite(plantID)
+    }
+
     override fun onTapPlantItem(plantID: String) {
         mView.navigateToDetail(plantID)
     }
 
-    fun onTapFavourite(plantID : String)
-    {
-
-    }
 
     override fun onCreate()
     {
-        val model = PlantModelImpl
 
         model.getPlants(onSuccess =
         {plantData ->

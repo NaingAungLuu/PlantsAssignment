@@ -1,5 +1,6 @@
 package com.androboy.plants.mvp.presenters
 
+import android.content.Context
 import com.androboy.plants.mvp.views.BaseView
 
 abstract class BasePresenter<T : BaseView> {
@@ -16,6 +17,8 @@ abstract class BasePresenter<T : BaseView> {
     open fun onStop(){}
     open fun onPause(){}
     open fun onResume(){}
+
+
 
 
 }
